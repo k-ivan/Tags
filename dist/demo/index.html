@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tags demo</title>
+  <link rel="stylesheet" href="../tags.min.css">
+  <style>
+    body {
+      padding: 20px;
+      font-family: "Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    form {
+      margin-bottom: 30px;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      height: 34px;
+      padding: 4px 8px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Tags input with flexbox & javascript(IE9 inline-block)</h3>
+  <form action="" class="test" method="post">
+    <label for="exist-values">Exist values
+      <input type="text" id="exist-values" class="tagged form-control" data-removeBtn="true" name="tag-2" value="PC,Play Station 4,X-BOX One" placeholder="Add Platform">
+    </label>
+    <button type="submit" name="button">Send</button>
+  </form>
+  <button id="destroy">destroy</button>
+  <button id="add">add tags</button>
+  <button id="addArr">add tags array</button>
+  <button id="clear">clear tags</button>
+  <button id="get">get taggs</button>
+
+  <script src="../tags.min.js"></script>
+  <script>
+    var tags = new Tags('.tagged');
+
+    document.getElementById('get').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert(tags.getTags());
+    });
+    document.getElementById('clear').addEventListener('click', function(e) {
+      e.preventDefault();
+      tags.clearTags();
+    });
+    document.getElementById('add').addEventListener('click', function(e) {
+      e.preventDefault();
+      tags.addTags('New');
+    });
+    document.getElementById('addArr').addEventListener('click', function(e) {
+      e.preventDefault();
+      tags.addTags(['Steam Machines', 'Nintendo Wii U', 'Shield Portable']);
+    });
+    document.getElementById('destroy').addEventListener('click', function(e) {
+      e.preventDefault();
+      if(this.textContent === 'destroy') {
+        tags.destroy();
+        this.textContent = 'reinit';
+      } else {
+        this.textContent = 'destroy';
+        tags = new Tags('.tagged');
+      }
+
+    });
+  </script>
+
+</body>
+</html>

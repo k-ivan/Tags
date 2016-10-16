@@ -1,0 +1,126 @@
+//=== Tags
+$enable-flex: true;
+$tags-color: #fff;
+$primary-color: #317CAF;
+$marked-color: lighten($primary-color, 20%);
+$exist-color: #EDB5A1;
+$container-border: 1px solid #ccc;
+$container-bg: transparent;
+$container-line-height: 1.6;
+$container-font-size: 14px;
+$container-radius: 1px;
+$container-min-height: 34px;
+$container-padding: 2px 5px;
+$tags-marging: 2px 6px 2px 0;
+$tags-padding: 1px 20px 1px 8px;
+$tags-weight: 400;
+$tags-radius: 3px;
+$spacer: 15px;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.tags-container {
+
+  @if($enable-flex) {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  margin-bottom: $spacer;
+  width: 100%;
+  min-height: $container-min-height;
+  padding: $container-padding;
+  font-size: $container-font-size;
+  line-height: $container-line-height;
+  background-color: $container-bg;
+  border: $container-border;
+  border-radius: $container-radius;
+  overflow: hidden;
+  word-wrap: break-word;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input.tag-input {
+  @if ($enable-flex) {
+    flex: 3;
+  }
+  @else {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  border: 0;
+  outline: 0;
+}
+.tag {
+  @if ($enable-flex == false) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  position: relative;
+  margin: $tags-marging;
+  padding: $tags-padding;
+  font-size: inherit;
+  font-weight: $tags-weight;
+  text-align: center;
+  color: $tags-color;
+  background-color: $primary-color;
+  border-radius: $tags-radius;
+  transition: background-color .3s ease;
+  cursor: default;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &--marked {
+    background-color: $marked-color;
+  }
+
+  &--exists {
+    background-color: $exist-color;
+    animation: shake 1s linear;
+  }
+
+  &__name {
+    margin-right: 3px;
+  }
+
+ }
+.tag__remove {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 100%;
+  padding: 0 5px;
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity .3s ease;
+  opacity: .5;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  line-height: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+ @keyframes shake {
+   0%, 100% {
+     -webkit-transform: translate3d(0, 0, 0);
+             transform: translate3d(0, 0, 0);
+   }
+   10%, 30%, 50%, 70%, 90% {
+     -webkit-transform: translate3d(-5px, 0, 0);
+             transform: translate3d(-5px, 0, 0);
+   }
+   20%, 40%, 60%, 80% {
+     -webkit-transform: translate3d(5px, 0, 0);
+             transform: translate3d(5px, 0, 0);
+   }
+ }
