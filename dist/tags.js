@@ -67,6 +67,7 @@
     // Save input type
     var type = el.type;
 
+    var transitionEnd = whichTransitionEnd();
     var tagsArray = [];
     var KEYS = {
       ENTER: 13,
@@ -190,8 +191,8 @@
 
             addClass('tag--exists', tag);
 
-            if(whichTransitionEnd()) {
-              oneListener(tag, whichTransitionEnd(), function() {
+            if(transitionEnd) {
+              oneListener(tag, transitionEnd, function() {
                 removeClass('tag--exists', tag);
               });
             } else {
