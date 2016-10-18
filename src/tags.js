@@ -2,7 +2,7 @@
 
   'use strict';
 
-  // class helpers
+  // Helpers
   function $$(selectors, context) {
     return (typeof selectors === 'string') ? (context || document).querySelectorAll(selectors) : [selectors];
   }
