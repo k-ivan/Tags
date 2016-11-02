@@ -8,7 +8,7 @@ Add tags.min.css file in your document's head
 ````
 Add tags.min.js file in your page at the bottom of the body
 ````html
-<link rel="stylesheet" href="tags.min.js">
+<script src="tags.min.js"></script>
 ````
 Plugin initialization
 ````javascript
