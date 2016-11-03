@@ -275,7 +275,7 @@
       wrap = null;
       field = null;
 
-      el.instance = null;
+      delete el.instance;
     }
   }
 
