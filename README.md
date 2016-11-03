@@ -14,12 +14,12 @@ Plugin initialization
 ````javascript
 var tags = new Tags('#tagged'); // <input id="tagged">
 ````
-##Methods
-Available methods after initialization
-* `tags.getTags()` return a list of all tags in the field
-* `tags.addTags('string' || [array] )` You can add a single tag or array tag
-* `tags.clearTags()` clear the field tags
-* `tags.destroy()` destroy, if necessary
+##API Methods
+Available public methods after initialization
+* `.getTags()` return a list of all tags in the field
+* `.addTags('string' || [array] )` You can add a single tag or array tag
+* `.clearTags()` clear the field tags
+* `.destroy()` destroy, if necessary
 
 ##Example
 ````javascript
